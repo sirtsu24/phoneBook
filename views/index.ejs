@@ -1,0 +1,32 @@
+<%- include ("header.ejs") -%>
+
+<div class="box" id="heading">
+    <h1>Phonebook</h1>
+    <h3><%= date %></h3> 
+</div>
+
+<div class="box">
+    <% for(var i=0; i< numberItems.length; i++) { %>
+        <form action="/delete" method="POST">
+            <div class="item">
+                <input name="checkbox" value="<%= numberItems[i].id %>" type="checkbox" onchange="this.form.submit()">
+                <p>Name: <%= numberItems[i].name %></p> 
+                <p>Number: <%= numberItems[i].number %></p>
+               
+            </div>
+        </form>
+
+        <% } %>
+
+        <form action="/" class="class" method="POST">
+        <input type="text" name="name" placeholder="Name" autocomplete="off">
+        <input type="text" name="number" placeholder="Phone number" autocomplete="off">
+        <button type="submit">+</button>
+    </form>
+
+</div>
+
+<%- include("footer") -%>
+
+</body>
+</html>
